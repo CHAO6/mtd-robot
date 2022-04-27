@@ -1,23 +1,11 @@
+// 用户地址
+let userAddress = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+// 所有在售NFT
+let allSaleNFT = [{ price: 1, address: false }]
+// 最低价格
+let lowPrice = 0
 
-const userAddress = []
-const allSaleNFT = [{ price: 1, address: false }]
-const lowPrice = 0
-
-// 随机账号
-function randomAccount (min, max) {
-  let randomIndex = 0
-
-  randomIndex = Math.floor(Math.random() * (max - min)) + min
-  return userAddress[randomIndex]
-};
-
-// 购买NFT
-function NFTBuy () {
-  const address = randomAccount(0, 20)
-  console.log(address)
-};
-
-// 条件判读
+// 条件判断
 function NFTShopping () {
   if (allSaleNFT.legnth > 0) {
     allSaleNFT.forEach((each, index) => {
@@ -28,6 +16,19 @@ function NFTShopping () {
       }
     })
   }
+};
+
+// 合约--购买
+function NFTBuy () {
+  let randomUser = randomAccount()
+};
+
+// 随机账号
+function randomAccount () {
+  let randomIndex = 0
+
+  randomIndex = Math.floor(Math.random() * userAddress.length + 1) - 1
+  return userAddress[randomIndex]
 };
 
 export default NFTShopping;
